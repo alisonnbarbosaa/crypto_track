@@ -124,3 +124,19 @@
     @apply bg-background text-foreground;
   }
 }
+
+.bg {
+  background-color: #F8F9FA;
+}
+.text_primary {
+    color: #212529;
+} 
+.text_primary {
+  color: #6C757D;
+}
+.text_highlight {
+  color: #007BFF;
+}
+.bg_highlight {
+  background-color: #007BFF;
+}
