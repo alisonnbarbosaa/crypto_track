@@ -3,7 +3,7 @@ import Link from "next/link";
 export default function NavLink({ CustomLink }) {
   return (
     <nav className={`px-4 ${CustomLink}`}>
-      <ul className="flex justify-center gap-4">
+      <ul className="flex justify-center gap-4 text_primary font-medium">
         <li>
           <Link href="/" className="flex items-center gap-2">
             Home
