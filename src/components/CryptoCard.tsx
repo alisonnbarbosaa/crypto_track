@@ -2,6 +2,7 @@ import Image from "next/image";
 import { Card, CardContent, CardHeader, CardTitle } from "./ui/card";
 import { Button } from "./ui/button";
 import { Eye } from "lucide-react";
+import Link from "next/link";
 
 export default function CryptoCard({ cryptos }) {
   if (cryptos.length < 1) {
@@ -57,9 +58,11 @@ export default function CryptoCard({ cryptos }) {
                 </tr>
               </tbody>
             </table>
-            <Button variant="outline">
-              <Eye />
-            </Button>
+            <Link href={`/crypto/${crypto.id}`}>
+              <Button variant="outline" className="cursor-pointer">
+                <Eye />
+              </Button>
+            </Link>
           </CardContent>
         </Card>
       ))}
