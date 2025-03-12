@@ -1,7 +1,11 @@
 "use client";
 
 import CryptoCard from "@/components/CryptoCard";
+import Image from "next/image";
 import { useEffect, useState } from "react";
+import cryptosImg from "../../public/cryptos.png";
+import { Input } from "@/components/ui/input";
+import { Search } from "lucide-react";
 
 interface CryptoData {
   id: string;
@@ -30,7 +34,41 @@ export default function Home() {
 
   return (
     <>
-      <CryptoCard cryptos={cryptos} />
+      <section className="h-min w-full flex items-center justify-center max-sm:flex-col max-sm:gap-8">
+        <div className="sm:w-1/2 flex items-center justify-center">
+          <Image
+            src={cryptosImg}
+            alt="crypto image"
+            className="sm:h-1/2 w-4/5"
+          />
+        </div>
+        <div className="sm:w-1/2 max-sm:flex flex-col items-center">
+          <h1 className="text-4xl font-black text_primary mb-4">
+            Crypto Track
+          </h1>
+          <p className="w-3/4 text_secondary max-sm:text-center">
+            A sua plataforma completa para acompanhar o mercado de criptomoedas
+            em tempo real. Aqui, você encontra cotações, gráficos interativos e
+            informações detalhadas sobre os principais ativos digitais.
+          </p>
+        </div>
+      </section>
+      <section>
+        <h2 className="text-center text-3xl font-bold my-8 text_primary">
+          List of cryptocurrencies
+        </h2>
+        <div className="h-12 mb-8 flex items-center justify-center">
+          <label className="flex items-center gap-2">
+            <Search className="sm:w-8 sm:h-8 w-6 h-6" />
+            <Input
+              type="name"
+              placeholder="Look for a cryptocurrency..."
+              className="sm:w-[400px] w-[300px]"
+            />
+          </label>
+        </div>
+        <CryptoCard cryptos={cryptos} />
+      </section>
     </>
   );
 }
