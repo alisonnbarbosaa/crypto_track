@@ -8,7 +8,7 @@ export default function CryptoCard({ cryptos }) {
   if (cryptos.length < 1) {
     return (
       <div className="flex justify-center items-center mt-8">
-        <h2>Carregando...</h2>
+        <h2 className="dark:text-[#E0E0E0] text-[#212529]">Carregando...</h2>
       </div>
     );
   }
@@ -17,7 +17,7 @@ export default function CryptoCard({ cryptos }) {
     <div className="flex flex-col justify-center items-center gap-4">
       {cryptos.map((crypto) => (
         <Link key={crypto.id} href={`crypto/${crypto.id}`}>
-          <Card className="flex-row items-center justify-center px-4 w-[420px] sm:w-[600px] md:w-[700px] bg_hover duration-100">
+          <Card className="flex-row items-center justify-center px-4 w-[420px] sm:w-[600px] md:w-[700px] duration-100">
             <CardHeader className="flex flex-row items-center gap-2">
               <Image
                 src={crypto.image}
@@ -30,7 +30,7 @@ export default function CryptoCard({ cryptos }) {
             <CardContent className="flex items-center justify-between w-full pl-4">
               <table className="w-full">
                 <thead className="text-left max-sm:text-right">
-                  <tr className="text_secondary">
+                  <tr>
                     <th className="font-medium">Preço atual:</th>
                     <th className="font-medium max-sm:hidden">
                       Maior Preço 24h:

@@ -43,10 +43,10 @@ export default function Home() {
           />
         </div>
         <div className="sm:w-1/2 max-sm:flex flex-col items-center">
-          <h1 className="text-4xl font-black text_primary mb-4">
+          <h1 className="text-4xl font-black mb-4 dark:text-[#E0E0E0] text-[#212529]">
             Crypto Track
           </h1>
-          <p className="w-3/4 text_secondary max-sm:text-center">
+          <p className="w-3/4 max-sm:text-center dark:text-[#B0B0B0] text-[#6C757D]">
             A sua plataforma completa para acompanhar o mercado de criptomoedas
             em tempo real. Aqui, você encontra cotações, gráficos interativos e
             informações detalhadas sobre os principais ativos digitais.
@@ -54,7 +54,7 @@ export default function Home() {
         </div>
       </section>
       <section>
-        <h2 className="text-center text-3xl font-bold my-8 text_primary">
+        <h2 className="text-center text-3xl font-bold my-8 dark:text-[#E0E0E0] text-[#212529]">
           List of cryptocurrencies
         </h2>
         <div className="h-12 mb-8 flex items-center justify-center">

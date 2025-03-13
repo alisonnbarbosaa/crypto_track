@@ -124,22 +124,3 @@
     @apply bg-background text-foreground;
   }
 }
-
-.bg {
-  background-color: #f8f9fa;
-}
-.bg_hover:hover {
-  background-color: #dee2e6;
-}
-.text_primary {
-  color: #212529;
-}
-.text_secondary {
-  color: #6c757d;
-}
-.text_highlight {
-  color: #007bff;
-}
-.bg_highlight {
-  background-color: #007bff;
-}
