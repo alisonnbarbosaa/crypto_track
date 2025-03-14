@@ -16,6 +16,8 @@ interface CryptoData {
 
 export default function Home() {
   const [cryptos, setCryptos] = useState<CryptoData[]>([]);
+  const [filteredCrypto, setFilteredCrypto] = useState([]);
+  const [searchCrypto, setSearcCrypto] = useState("");
 
   useEffect(() => {
     async function fetchCryptos() {
@@ -25,12 +27,21 @@ export default function Home() {
         );
         const data: CryptoData[] = await response.json();
         setCryptos(data);
+        setFilteredCrypto(data);
       } catch (error) {
         console.error("Erro ao buscar criptomoedas:", error);
       }
     }
     fetchCryptos();
   }, []);
+
+  useEffect(() => {
+    const filterCrypto = cryptos.filter((crypto) =>
+      crypto.name.toLowerCase().includes(searchCrypto.toLocaleLowerCase())
+    );
+
+    setFilteredCrypto(filterCrypto);
+  }, [searchCrypto, cryptos]);
 
   return (
     <>
@@ -64,10 +75,11 @@ export default function Home() {
               type="name"
               placeholder="Look for a cryptocurrency..."
               className="sm:w-[400px] w-[300px]"
+              onChange={(e)=> setSearcCrypto(e.target.value)}
             />
           </label>
         </div>
-        <CryptoCard cryptos={cryptos} />
+        <CryptoCard cryptos={filteredCrypto} />
       </section>
     </>
   );
