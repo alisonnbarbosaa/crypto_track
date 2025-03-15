@@ -12,7 +12,9 @@ export default function useDarkMode() {
       setTheme(storedTheme as "light" | "dark");
     } else {
       // Se não houver tema salvo, usa a preferência do sistema
-      const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+      const prefersDark = window.matchMedia(
+        "(prefers-color-scheme: dark)"
+      ).matches;
       setTheme(prefersDark ? "dark" : "light");
     }
   }, []);

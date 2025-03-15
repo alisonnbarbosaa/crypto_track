@@ -33,7 +33,9 @@ export default function Header() {
         <SheetContent side="top" className="h-36">
           <SheetHeader className="flex-row items-center gap-2">
             <Image src={Logo} alt="logo" className="w-8 h-8" />
-            <SheetTitle className="dark:text-[#E0E0E0] text-[#212529]">Crypto Track</SheetTitle>
+            <SheetTitle className="dark:text-[#E0E0E0] text-[#212529]">
+              Crypto Track
+            </SheetTitle>
           </SheetHeader>
           <NavLink />
         </SheetContent>

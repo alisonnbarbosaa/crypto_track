@@ -16,21 +16,26 @@ export default function CryptoCard({ cryptos }) {
       {cryptos.map((crypto) => (
         <Link key={crypto.id} href={`crypto/${crypto.id}`}>
           <Card className="flex-row items-center justify-between px-4 w-[420px] sm:w-[600px] md:w-[700px] duration-100 hover:bg-accent">
-            <CardHeader className="flex-row items-center gap-2 w-2/5">
+            <CardHeader className="flex flex-row items-center gap-2 w-2/5">
               <Image
                 src={crypto.image}
                 alt={crypto.name}
                 width={40}
                 height={40}
               />
-              <CardTitle className="text-[#212529] dark:text-[#E0E0E0]">{crypto.name}</CardTitle>
+              <CardTitle className="text-[#212529] dark:text-[#E0E0E0]">
+                {crypto.name}
+              </CardTitle>
             </CardHeader>
             <CardContent className="w-3/5">
               <div className="text-right">
-                <p className="text-[#212529] dark:text-[#E0E0E0]">&#36; {(crypto.current_price).toLocaleString('pt-br',{
-                  minimumFractionDigits: 2,
-                  maximumFractionDigits: 2,
-                })}</p>
+                <p className="text-[#212529] dark:text-[#E0E0E0]">
+                  &#36;
+                  {crypto.current_price.toLocaleString("pt-br", {
+                    minimumFractionDigits: 2,
+                    maximumFractionDigits: 2,
+                  })}
+                </p>
               </div>
             </CardContent>
           </Card>

@@ -21,7 +21,6 @@ interface CryptoDetailsProps {
 }
 
 type CryptoData = {
-  id: string;
   name: string;
   symbol: string;
   image: { large: string };
@@ -30,12 +29,10 @@ type CryptoData = {
   market_data: {
     current_price: { usd: number };
     price_change_percentage_24h: number;
-    price_change_percentage_7d: number;
     high_24h: { usd: number };
     low_24h: { usd: number };
     market_cap: { usd: number };
     total_volume: { usd: number };
-    circulating_supply: number;
   };
 };
 
@@ -68,18 +65,20 @@ export default function CryptoDetails({ params }: CryptoDetailsProps) {
   }
 
   return (
-    <div className="flex justify-center items-center h-[calc(100vh-144px)]">
-      <section className="w-1/2 h-full">
-        <Link href="/">
-          <Button>
-            <ChevronLeft />
-            Back
-          </Button>
-        </Link>
-        <ChartCrypto />
+    <div className="flex justify-center items-center sm:h-[calc(100vh-144px)] max-sm:flex-col gap-4 mx-4">
+      <section className="sm:w-1/2 w-full sm:h-full h-1/2 flex flex-col gap-8 justify-center">
+        <div className="w-full max-w-2xl mx-auto">
+          <Link href="/">
+            <Button className="bg-[var(--card)] dark:text-white text-black hover:bg-accent cursor-pointer">
+              <ChevronLeft />
+              Back
+            </Button>
+          </Link>
+        </div>
+        <ChartCrypto cryptoId={id} />
       </section>
-      <section className="w-1/2 h-full flex items-center justify-center">
-        <Card className="p-4 w-3/4">
+      <section className="sm:w-1/2 w-full sm:h-full h-1/2 flex items-center justify-center">
+        <Card className="p-4 sm:w-3/4 w-full">
           <CardHeader className="gap-4">
             <div className="flex items-center gap-2">
               <Image
@@ -97,34 +96,37 @@ export default function CryptoDetails({ params }: CryptoDetailsProps) {
           <CardContent className="flex justify-between">
             <ul>
               <li>
-                <span>Ticket: </span>
+                <span className="font-bold">Ticket: </span>
                 {crypto.symbol}
               </li>
               <li>
-                <span>Preço Atual:</span> $
+                <span className="font-bold">Preço Atual:</span> $
                 {crypto.market_data.current_price.usd}
               </li>
               <li>
-                <span>Máx. 24h:</span> ${crypto.market_data.high_24h.usd}
+                <span className="font-bold">Máx. 24h:</span> $
+                {crypto.market_data.high_24h.usd}
               </li>
               <li>
-                <span>Mín. 24h:</span> ${crypto.market_data.low_24h.usd}
+                <span className="font-bold">Mín. 24h:</span> $
+                {crypto.market_data.low_24h.usd}
               </li>
             </ul>
             <ul>
               <li>
-                <span>Variação 24h: </span>
+                <span className="font-bold">Variação 24h: </span>
                 {crypto.market_data.price_change_percentage_24h}%
               </li>
               <li>
-                <span>Market Cap: </span>
+                <span className="font-bold">Market Cap: </span>
                 {crypto.market_data.market_cap.usd}
               </li>
               <li>
-                <span>Volume 24h: </span>${crypto.market_data.total_volume.usd}
+                <span className="font-bold">Volume 24h: </span>$
+                {crypto.market_data.total_volume.usd}
               </li>
               <li>
-                <span>Rank: </span>
+                <span className="font-bold">Rank: </span>
                 {crypto.market_cap_rank}
               </li>
             </ul>

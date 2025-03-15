@@ -75,7 +75,7 @@ export default function Home() {
               type="name"
               placeholder="Look for a cryptocurrency..."
               className="sm:w-[400px] w-[300px]"
-              onChange={(e)=> setSearcCrypto(e.target.value)}
+              onChange={(e) => setSearcCrypto(e.target.value)}
             />
           </label>
         </div>
